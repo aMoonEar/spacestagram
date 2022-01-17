@@ -1,42 +1,28 @@
-# Create React App example with TypeScript
+# Shopify Developer Challenge (Summer 2022)
 
-## How to use
+### [Demo](https://frosty-thompson-9a3093.netlify.app/)
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+This is my submission for Shopify's Developer challenge for Summer 2022.
 
-<!-- #default-branch-switch -->
+## The Objective
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app-with-typescript
-cd create-react-app-with-typescript
-```
+The objective was to build a feed of the latest images from [NASA's API](https://api.nasa.gov/) and allow users to 'like' and 'unlike' them
 
-Install it and run:
+### Features
 
-```sh
-npm install
-npm start
-```
+- Search results should come from NASA's API ✓
+- Display the title, date of capture, and button to like the image ✓
+- Used a custom react theme ✓
+- Animated the `like` action ✓
+- Added a loading state while fetching data ✓
+- Displays both videos and photos ✓
+- Compatible for all devices ✓
 
-or:
+### Improvements
 
-<!-- #default-branch-switch -->
+There are several improvements that can be made to this app
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app-with-typescript)
-
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui-org/material-ui/tree/master/examples/create-react-app-with-typescript)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app) with [TypeScript](https://github.com/Microsoft/TypeScript).
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
+- Create a back-end to hide API KEYs
+- Save the likes if the user reloads the page
+- Create shareable link for every image
+- Add a date-picker to show photos from a specific date
