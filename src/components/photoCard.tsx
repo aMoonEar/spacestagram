@@ -17,6 +17,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import LinkIcon from "@mui/icons-material/Link";
 // @ts-ignore
 import Heart from "react-animated-heart";
@@ -46,22 +47,31 @@ export const PhotoCard = ({
     return (
       <>
         <Box sx={{ marginTop: 2, display: "flex" }}>
-          <Button
-            sx={{
-              minWidth: "20px",
-            }}
-            variant="outlined"
-            onClick={() => setLiked(!isLiked)}
-            color="primary"
+          <Tooltip title={isLiked ? "Unlike" : "Like"} placement="top">
+            <Button
+              sx={{
+                minWidth: "20px",
+              }}
+              variant="outlined"
+              onClick={() => setLiked(!isLiked)}
+              color="primary"
+            >
+              {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            </Button>
+          </Tooltip>
+          <Tooltip
+            title={showExplanation ? "Hide Explanation" : "Show Explanation"}
+            placement="top"
           >
-            {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          </Button>
-          <Tooltip title="Show Explanation" placement="top">
             <Button
               sx={{ minWidth: "20px", marginLeft: 2 }}
               onClick={() => setShowExplanation(!showExplanation)}
             >
-              <KeyboardArrowDownIcon />
+              {showExplanation ? (
+                <KeyboardArrowUpIcon />
+              ) : (
+                <KeyboardArrowDownIcon />
+              )}
             </Button>
           </Tooltip>
           <Link

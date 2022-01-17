@@ -9,7 +9,7 @@ export const Title = (): JSX.Element => {
     <Box sx={{ my: 25 }}>
       <Fade in={true} timeout={1500} easing={transition.easeInOut}>
         <Typography variant="h1" component="h1" gutterBottom>
-          Spacestagram
+          Spacestagram 🌌
         </Typography>
       </Fade>
 
