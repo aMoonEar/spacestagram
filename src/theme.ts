@@ -27,7 +27,7 @@ const theme = createTheme({
       fontSize: "7rem",
       fontFamily: "Comfortaa",
       "@media (max-width:900px)": {
-        fontSize: "4rem",
+        fontSize: "3rem",
       },
     },
     h2: {
@@ -43,6 +43,9 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: "1rem",
       lineHeight: 1.7,
+      "@media (max-width:900px)": {
+        lineHeight: 1.2,
+      },
     },
     body2: {
       textTransform: "uppercase",
