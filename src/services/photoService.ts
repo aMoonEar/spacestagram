@@ -27,7 +27,6 @@ const addPhotos = async ({
 
   try {
     axios.get<PhotoData[]>(url).then((response) => {
-      console.log(response.data);
       setLoading(false);
       const newPhotos: PhotoData[] = response.data.reverse();
 

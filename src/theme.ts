@@ -33,7 +33,7 @@ const theme = createTheme({
     h2: {
       fontFamily: "Comfortaa",
       fontWeight: 700,
-      fontSize: "2rem",
+      fontSize: "1.8rem",
     },
     h3: {
       fontWeight: 500,
@@ -41,8 +41,11 @@ const theme = createTheme({
     },
     body1: {
       fontWeight: 400,
-      fontSize: "1.1rem",
+      fontSize: "1rem",
       lineHeight: 1.7,
+    },
+    body2: {
+      textTransform: "uppercase",
     },
   },
 });

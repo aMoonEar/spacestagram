@@ -1,11 +1,13 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {
+  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
+  CircularProgress,
 } from "@mui/material";
 import dateFormat from "dateformat";
 // import PhotoService from "../services/photoService";
@@ -65,16 +67,27 @@ export const PhotoGallery = (): JSX.Element => {
   const renderSeeMoreButton = () => {
     if (!isLoading) {
       return (
-        <Button variant="contained" onClick={addTenPhotos}>
-          See more
-        </Button>
+        <Box textAlign="center" sx={{ marginTop: "40px" }}>
+          <Button
+            sx={{ margin: "auto" }}
+            variant="contained"
+            onClick={addTenPhotos}
+          >
+            See more
+          </Button>
+        </Box>
       );
     }
   };
 
   const renderIsLoading = () => {
     if (isLoading) {
-      return <h1>loading...</h1>;
+      return (
+        <Box sx={{ marginTop: "60px" }} textAlign="center">
+          <CircularProgress color="secondary" />
+          <Typography>Fetching images from space...</Typography>
+        </Box>
+      );
     }
   };
 
@@ -82,10 +95,12 @@ export const PhotoGallery = (): JSX.Element => {
     <>
       {photos.map((photo) => (
         <PhotoCard
+          key={photo.title}
           date={photo.date}
           explanation={photo.explanation}
           title={photo.title}
           url={photo.url}
+          media_type={photo.media_type}
         />
       ))}
       {renderIsLoading()}

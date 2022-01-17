@@ -22,6 +22,7 @@ type PhotoCardProps = {
   explanation: string;
   title: string;
   url: string;
+  media_type: string;
 };
 
 // margin-right: -15px;
@@ -34,6 +35,7 @@ export const PhotoCard = ({
   explanation,
   title,
   url,
+  media_type,
 }: PhotoCardProps): JSX.Element => {
   const [isLiked, setLiked] = React.useState<boolean>(false);
 
@@ -44,20 +46,25 @@ export const PhotoCard = ({
           onClick={() => setLiked(!isLiked)}
           variant="contained"
           size="small"
+          sx={{
+            width: "130px",
+          }}
           startIcon={
             <Box
               sx={{
                 marginBottom: "-40px",
                 marginTop: "-32px",
-                marginLeft: "-28px",
-                marginRight: "-20px",
+                marginLeft: "-50px",
+                marginRight: "-30px",
               }}
             >
               <Heart isClick={isLiked} onClick={() => setLiked(!isLiked)} />
             </Box>
           }
         >
-          {isLiked ? "Unlike" : "like"}
+          <Typography sx={{ width: "40px" }}>
+            {isLiked ? "Unlike" : "like"}
+          </Typography>
         </Button>
       </>
     );
@@ -65,15 +72,15 @@ export const PhotoCard = ({
 
   return (
     <Card
-      sx={{ maxWidth: 500, margin: "auto", marginTop: "100px", boxShadow: 15 }}
+      sx={{ maxWidth: 700, margin: "auto", marginTop: "100px", boxShadow: 3 }}
     >
       <CardMedia
-        component="img"
-        // height="600"
-        image={url}
-        alt={title}
+        component={media_type == "video" ? "iframe" : "img"}
+        height={media_type == "video" ? "600" : ""}
+        src={url}
+        // alt={title}
       />
-      <CardContent sx={{ mx: 5 }}>
+      <CardContent sx={{ mx: 2 }}>
         <Typography
           sx={{
             marginTop: "30px",
@@ -84,12 +91,13 @@ export const PhotoCard = ({
         >
           {title}
         </Typography>
-        <Typography gutterBottom variant="h3" component="div">
-          {dateFormat(date, "dddd, mmmm dS, yyyy")}
+        {renderLikeButton()}
+        <Typography sx={{ marginTop: 2 }}>{explanation}</Typography>
+        <Typography sx={{ marginTop: 2 }} variant="body2" gutterBottom>
+          {dateFormat(date, "mmmm dS, yyyy")}
         </Typography>
-        <Typography sx={{ marginTop: 4 }}>{explanation}</Typography>
       </CardContent>
-      <CardActions>{renderLikeButton()}</CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 };

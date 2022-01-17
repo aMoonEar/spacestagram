@@ -4,7 +4,12 @@ import { Link } from "@mui/material";
 
 export const Copyright = (): JSX.Element => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography
+      sx={{ marginTop: "80px", marginBottom: "60px" }}
+      variant="body1"
+      color="text.secondary"
+      align="center"
+    >
       {"Copyright © "}
       <Link color="inherit" href="https://munir.xyz/">
         Munir Alsafi's Website

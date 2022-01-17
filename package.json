@@ -12,8 +12,11 @@
     "axios": "^0.24.0",
     "dateformat": "^5.0.2",
     "react": "latest",
+    "react-animated-heart": "^0.0.7-alpha.1",
     "react-dom": "latest",
     "react-scripts": "latest",
+    "react-show-more-text": "^1.5.2",
+    "read-more-react": "^1.0.10",
     "typescript": "latest"
   },
   "scripts": {
@@ -35,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "@types/dateformat": "^5.0.0",
-    "react-animated-heart": "^0.0.7-alpha.1"
+    "@types/dateformat": "^5.0.0"
   }
 }

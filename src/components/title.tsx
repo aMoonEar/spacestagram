@@ -20,12 +20,16 @@ export const Title = (): JSX.Element => {
       </Fade>
 
       <Fade in={true} timeout={2500} easing={transition.easeInOut}>
-        <p>
+        <Typography>
           Brought to you by &nbsp;
           <Link color="inherit" href="https://api.nasa.gov/#apod">
             NASA's Astronomy Picture of the Day API
           </Link>{" "}
-        </p>
+        </Typography>
+      </Fade>
+
+      <Fade in={true} timeout={2800} easing={transition.easeInOut}>
+        <Typography sx={{ marginTop: "20px" }}>Made by Munir Alsafi</Typography>
       </Fade>
     </Box>
   );
