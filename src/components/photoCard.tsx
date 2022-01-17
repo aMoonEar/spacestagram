@@ -9,6 +9,7 @@ import {
   CardMedia,
   Collapse,
   IconButton,
+  Link,
   Tooltip,
 } from "@mui/material";
 import dateFormat from "dateformat";
@@ -63,15 +64,18 @@ export const PhotoCard = ({
               <KeyboardArrowDownIcon />
             </Button>
           </Tooltip>
-
-          <Tooltip title="Get URL" placement="top">
-            <Button
-              sx={{ marginLeft: "auto", minWidth: "20px" }}
-              variant="outlined"
-            >
-              <LinkIcon />
-            </Button>
-          </Tooltip>
+          <Link
+            sx={{ marginLeft: "auto" }}
+            color="inherit"
+            href={url}
+            target="_blank"
+          >
+            <Tooltip title="Get URL" placement="top">
+              <Button sx={{ minWidth: "20px" }} variant="outlined">
+                <LinkIcon />
+              </Button>
+            </Tooltip>
+          </Link>{" "}
         </Box>
       </>
     );
