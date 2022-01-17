@@ -86,6 +86,7 @@ export const PhotoGallery = (): JSX.Element => {
       {photos.map((photo) => (
         <PhotoCard
           key={photo.title}
+          copyright={photo.copyright}
           date={photo.date}
           explanation={photo.explanation}
           title={photo.title}

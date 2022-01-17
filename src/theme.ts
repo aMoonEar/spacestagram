@@ -9,15 +9,15 @@ const theme = createTheme({
       main: "#D1DBBD",
     },
     secondary: {
-      main: "#91AA9D",
+      main: "#D1DBBD",
     },
     background: {
-      default: "#193441",
-      paper: "#3E606F",
+      default: "#fafafa",
+      paper: "#ffffff",
     },
     text: {
-      primary: "#FCFFF5",
-      secondary: "#FCFFF5",
+      primary: "#262626",
+      secondary: "#262626",
     },
   },
   typography: {
@@ -29,8 +29,8 @@ const theme = createTheme({
       },
     },
     h2: {
-      fontFamily: "Comfortaa",
-      fontWeight: 700,
+      // fontFamily: "Comfortaa",
+      fontWeight: 400,
       fontSize: "1.8rem",
     },
     h3: {

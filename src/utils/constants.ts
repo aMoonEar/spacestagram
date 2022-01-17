@@ -4,6 +4,7 @@ export const themeColors = {
   midGreen: "#91AA9D",
   beige: "#D1DBBD",
   lightCream: "#FCFFF5",
+  white: "#fafafa",
 };
 
 export const transition = {
