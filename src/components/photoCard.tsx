@@ -9,6 +9,7 @@ import {
   CardMedia,
   Collapse,
   IconButton,
+  Tooltip,
 } from "@mui/material";
 import dateFormat from "dateformat";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -54,18 +55,23 @@ export const PhotoCard = ({
           >
             {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </Button>
-          <Button
-            sx={{ minWidth: "20px", marginLeft: 2 }}
-            onClick={() => setShowExplanation(!showExplanation)}
-          >
-            <KeyboardArrowDownIcon />
-          </Button>
-          <Button
-            sx={{ marginLeft: "auto", minWidth: "20px" }}
-            variant="outlined"
-          >
-            <LinkIcon />
-          </Button>
+          <Tooltip title="Show Explanation" placement="top">
+            <Button
+              sx={{ minWidth: "20px", marginLeft: 2 }}
+              onClick={() => setShowExplanation(!showExplanation)}
+            >
+              <KeyboardArrowDownIcon />
+            </Button>
+          </Tooltip>
+
+          <Tooltip title="Get URL" placement="top">
+            <Button
+              sx={{ marginLeft: "auto", minWidth: "20px" }}
+              variant="outlined"
+            >
+              <LinkIcon />
+            </Button>
+          </Tooltip>
         </Box>
       </>
     );
