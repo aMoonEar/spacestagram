@@ -1,25 +1,10 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  CircularProgress,
-} from "@mui/material";
+import { Box, Button, CircularProgress } from "@mui/material";
 import dateFormat from "dateformat";
-// import PhotoService from "../services/photoService";
 import PhotoData from "../types/photoData";
-import axios from "axios";
 import { PhotoCard } from "./photoCard";
 import PhotoService from "../services/photoService";
-
-// every card has:
-// image, like button, title, explanation, date
-
-// make another component that takes a start and end date and returns the images in that set (inclusive)
 
 export const PhotoGallery = (): JSX.Element => {
   const [lastDate] = React.useState<Date>(new Date());
@@ -30,12 +15,13 @@ export const PhotoGallery = (): JSX.Element => {
     getTenPhotos();
   }, []);
 
+  // Retrieve the first ten photos to display to the user
   const getTenPhotos = () => {
     setLoading(true);
     // subtracting 10 days
     lastDate.setDate(lastDate.getDate() - 10);
     const formattedDate = dateFormat(lastDate, "yyyy-mm-dd");
-    // api call
+    // Perform the API call
     PhotoService.addPhotos({
       startDate: formattedDate,
       setLoading,
@@ -44,9 +30,11 @@ export const PhotoGallery = (): JSX.Element => {
     });
   };
 
+  // Make another API call to get the next ten photos
   const addTenPhotos = () => {
     setLoading(true);
 
+    // Keep the original date and subtract 1 day
     const originalDate = lastDate;
     originalDate.setDate(lastDate.getDate() - 1);
     const formattedOriginalDate = dateFormat(lastDate, "yyyy-mm-dd");
@@ -54,7 +42,7 @@ export const PhotoGallery = (): JSX.Element => {
     // subtracting 10 days
     lastDate.setDate(lastDate.getDate() - 10);
     const formattedDate = dateFormat(lastDate, "yyyy-mm-dd");
-    // api call
+    // Perform the API call
     PhotoService.addPhotos({
       startDate: formattedDate,
       endDate: formattedOriginalDate,
@@ -64,6 +52,7 @@ export const PhotoGallery = (): JSX.Element => {
     });
   };
 
+  // Render the 'See More' button at the bottom of the page
   const renderSeeMoreButton = () => {
     if (!isLoading) {
       return (
@@ -80,6 +69,7 @@ export const PhotoGallery = (): JSX.Element => {
     }
   };
 
+  // Render the loading animation when photos are loading
   const renderIsLoading = () => {
     if (isLoading) {
       return (

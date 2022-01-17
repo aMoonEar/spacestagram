@@ -1,6 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
-import { themeColors } from "./utils/constants";
 import "@fontsource/comfortaa/400.css";
 import "@fontsource/comfortaa/700.css";
 

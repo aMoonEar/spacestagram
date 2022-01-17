@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import PhotoData from "../types/photoData";
 
 type PhotoParameters = {
@@ -9,7 +9,6 @@ type PhotoParameters = {
   photos: PhotoData[];
 };
 
-// add a date range here
 const addPhotos = async ({
   startDate,
   endDate,
@@ -19,6 +18,7 @@ const addPhotos = async ({
 }: PhotoParameters): Promise<PhotoData[] | undefined> => {
   let url: string;
 
+  // Add the end date to the API request if there is one
   if (endDate) {
     url = `https://api.nasa.gov/planetary/apod?api_key=ykzQINaucAEoc1RW6I3CqVke24wjlu9JAyrDVcKd&start_date=${startDate}&end_date=${endDate}`;
   } else {
@@ -28,11 +28,11 @@ const addPhotos = async ({
   try {
     axios.get<PhotoData[]>(url).then((response) => {
       setLoading(false);
+      // Reverse the photos so they appear in chronological order
       const newPhotos: PhotoData[] = response.data.reverse();
 
-      // reverse so that it appears in order of date
+      // Combine the two arrays
       setPhotos(photos.concat(newPhotos));
-      // setPhotos([...photos, response.data.reverse()]);
     });
   } catch {
     console.error("There was an error retrieving the data");

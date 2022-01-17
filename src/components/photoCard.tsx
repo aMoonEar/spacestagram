@@ -12,11 +12,6 @@ import dateFormat from "dateformat";
 // @ts-ignore
 import Heart from "react-animated-heart";
 
-// every card has:
-// image, like button, title, explanation, date
-
-// make another component that takes a start and end date and returns the images in that set (inclusive)
-
 type PhotoCardProps = {
   date: string;
   explanation: string;
@@ -24,11 +19,6 @@ type PhotoCardProps = {
   url: string;
   media_type: string;
 };
-
-// margin-right: -15px;
-//     margin-top: -32px;
-//     margin-bottom: -28px;
-//     margin-left: -35px;
 
 export const PhotoCard = ({
   date,
@@ -39,6 +29,7 @@ export const PhotoCard = ({
 }: PhotoCardProps): JSX.Element => {
   const [isLiked, setLiked] = React.useState<boolean>(false);
 
+  // Render the like button that every photo contains
   const renderLikeButton = (): JSX.Element => {
     return (
       <>
@@ -78,7 +69,6 @@ export const PhotoCard = ({
         component={media_type == "video" ? "iframe" : "img"}
         height={media_type == "video" ? "600" : ""}
         src={url}
-        // alt={title}
       />
       <CardContent sx={{ mx: 2 }}>
         <Typography
@@ -87,7 +77,6 @@ export const PhotoCard = ({
           }}
           gutterBottom
           variant="h2"
-          component="div"
         >
           {title}
         </Typography>
