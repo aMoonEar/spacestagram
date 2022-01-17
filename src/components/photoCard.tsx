@@ -7,6 +7,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Collapse,
   IconButton,
 } from "@mui/material";
 import dateFormat from "dateformat";
@@ -36,6 +37,7 @@ export const PhotoCard = ({
   media_type,
 }: PhotoCardProps): JSX.Element => {
   const [isLiked, setLiked] = React.useState<boolean>(false);
+  const [showExplanation, setShowExplanation] = React.useState<boolean>(false);
 
   // Render the like button that every photo contains
   const renderLikeButton = (): JSX.Element => {
@@ -52,7 +54,10 @@ export const PhotoCard = ({
           >
             {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </Button>
-          <Button sx={{ minWidth: "20px", marginLeft: 2 }}>
+          <Button
+            sx={{ minWidth: "20px", marginLeft: 2 }}
+            onClick={() => setShowExplanation(!showExplanation)}
+          >
             <KeyboardArrowDownIcon />
           </Button>
           <Button
@@ -63,6 +68,18 @@ export const PhotoCard = ({
           </Button>
         </Box>
       </>
+    );
+  };
+
+  const renderExplanation = (): JSX.Element => {
+    return (
+      <Collapse
+        sx={{ marginTop: 3 }}
+        orientation="vertical"
+        in={showExplanation}
+      >
+        <Typography>{explanation}</Typography>
+      </Collapse>
     );
   };
 
@@ -110,6 +127,7 @@ export const PhotoCard = ({
           {dateFormat(date, "mmmm dS, yyyy")}
         </Typography>
         {renderLikeButton()}
+        {renderExplanation()}
         {/* <Typography sx={{ marginTop: 2 }}>{explanation}</Typography> */}
       </CardContent>
       <CardActions></CardActions>
