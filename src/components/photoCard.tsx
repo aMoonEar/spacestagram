@@ -7,9 +7,12 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
 } from "@mui/material";
 import dateFormat from "dateformat";
-import theme from "../theme";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // @ts-ignore
 import Heart from "react-animated-heart";
 
@@ -36,21 +39,36 @@ export const PhotoCard = ({
   const renderLikeButton = (): JSX.Element => {
     return (
       <>
-        <Box sx={{ margin: "-32px" }}>
-          <Heart isClick={isLiked} onClick={() => setLiked(!isLiked)} />
+        <Box>
+          <Button
+            sx={{
+              minWidth: "20px",
+            }}
+            variant={isLiked ? "contained" : "outlined"}
+            onClick={() => setLiked(!isLiked)}
+            color="primary"
+          >
+            {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </Button>
         </Box>
       </>
     );
   };
 
+  const renderPhotographer = (): JSX.Element | undefined => {
+    if (copyright) {
+      return (
+        <Box sx={{ display: "flex", float: "left", marginBottom: 2 }}>
+          <CameraAltIcon />
+          <Typography sx={{ paddingLeft: 2 }} variant="h3">
+            {copyright}
+          </Typography>
+        </Box>
+      );
+    }
+  };
+
   return (
-    // <Box textAlign="center">
-    //   <Box
-    //     component="img"
-    //     sx={{ maxWidth: "800px", maxHeight: "400px" }}
-    //     src={url}
-    //   ></Box>
-    // </Box>
     <Card
       sx={{
         maxWidth: 700,
@@ -60,9 +78,8 @@ export const PhotoCard = ({
         backgroundColor: "#fafafa",
       }}
     >
-      <Typography sx={{ marginBottom: 2 }} variant="h3">
-        {copyright}
-      </Typography>
+      {renderPhotographer()}
+
       <CardMedia
         component={media_type == "video" ? "iframe" : "img"}
         height={media_type == "video" ? "600" : ""}

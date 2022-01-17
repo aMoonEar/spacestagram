@@ -6,14 +6,14 @@ import "@fontsource/comfortaa/700.css";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#D1DBBD",
+      main: "#3f51b5",
     },
     secondary: {
-      main: "#D1DBBD",
+      main: "#f50057",
     },
     background: {
       default: "#fafafa",
-      paper: "#ffffff",
+      paper: "#fafafa",
     },
     text: {
       primary: "#262626",
