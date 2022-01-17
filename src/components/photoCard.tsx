@@ -13,6 +13,8 @@ import dateFormat from "dateformat";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import LinkIcon from "@mui/icons-material/Link";
 // @ts-ignore
 import Heart from "react-animated-heart";
 
@@ -39,16 +41,25 @@ export const PhotoCard = ({
   const renderLikeButton = (): JSX.Element => {
     return (
       <>
-        <Box>
+        <Box sx={{ marginTop: 2, display: "flex" }}>
           <Button
             sx={{
               minWidth: "20px",
             }}
-            variant={isLiked ? "contained" : "outlined"}
+            variant="outlined"
             onClick={() => setLiked(!isLiked)}
             color="primary"
           >
             {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </Button>
+          <Button sx={{ minWidth: "20px", marginLeft: 2 }}>
+            <KeyboardArrowDownIcon />
+          </Button>
+          <Button
+            sx={{ marginLeft: "auto", minWidth: "20px" }}
+            variant="outlined"
+          >
+            <LinkIcon />
           </Button>
         </Box>
       </>
