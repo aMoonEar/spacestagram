@@ -25,7 +25,7 @@ const theme = createTheme({
       fontSize: "7rem",
       fontFamily: "Comfortaa",
       "@media (max-width:900px)": {
-        fontSize: "3rem",
+        fontSize: "2.8rem",
       },
     },
     h2: {
